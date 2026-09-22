@@ -1,0 +1,41 @@
+version: 1
+id: sbb-binarizaton
+name: SBB Binarization
+description: Runs SBB Binarization on selected image files.
+category: WORKFLOW
+
+endpoint:
+  url: http://kraken.example.com/dispatch
+  healthUrl: http://kraken.example.com/health
+  parameterValuesUrl: http://kraken.example.com/parameter-values
+  timeoutSeconds: 30
+  auth:
+    type: hmac
+    secretRef: sbb-binarizaton-v1
+
+access:
+  execute: CURATOR
+
+locking:
+  mode: PAGES
+
+inputs:
+  images:
+    level: required
+
+outputs:
+  images:
+    enabled: true
+    variant: sbb.bin.png
+    mode: append
+
+concurrency:
+  maxActiveRuns: 1
+  scope: PROJECT
+
+parameters:
+  Model:
+    type: string
+    description: SBB Binarization model
+    allowedValues:
+      provider: models
