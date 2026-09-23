@@ -16,7 +16,7 @@ from larex_action_sbbbin.runner import run
 def configure_action_logging() -> None:
     logging.basicConfig(
         level=logging.WARNING,
-        format='%(levelname)s %(name)s: %(message)s',
+        format='%(levelname)s:\t  %(name)s - %(message)s',
     )
     
     logger = logging.getLogger('larex_actions.transport')
