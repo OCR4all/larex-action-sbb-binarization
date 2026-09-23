@@ -1,6 +1,6 @@
 services:
   action-sbbbin:
-    container_name: larex-action-sbbbin-dev
+    container_name: larex-action-sbbbin
     build:
       context: ./
       dockerfile: Dockerfile

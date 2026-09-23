@@ -1,5 +1,5 @@
 version: 1
-id: sbb-binarizaton
+id: sbb-binarization
 name: SBB Binarization
 description: Runs SBB Binarization on selected image files.
 category: WORKFLOW
@@ -11,7 +11,7 @@ endpoint:
   timeoutSeconds: 30
   auth:
     type: hmac
-    secretRef: sbb-binarizaton-v1
+    secretRef: sbb-binarization-v1
 
 access:
   execute: CURATOR
