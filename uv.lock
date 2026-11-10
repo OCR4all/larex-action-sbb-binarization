@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.12"
 resolution-markers = [
     "python_full_version >= '3.14'",
@@ -161,8 +161,8 @@ wheels = [
 ]
 
 [[package]]
-name = "larex-action-sbbbin"
-version = "0.1.0"
+name = "larex-action-sbb-binarization"
+version = "0.2.0"
 source = { editable = "." }
 dependencies = [
     { name = "larex-action-sdk", extra = ["fastapi"] },
@@ -173,23 +173,23 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "larex-action-sdk", extras = ["fastapi"], specifier = ">=0.14.0" },
+    { name = "larex-action-sdk", extras = ["fastapi"], specifier = ">=0.23.0" },
     { name = "pydantic-settings", specifier = ">=2.15.0" },
-    { name = "sbbbin", git = "https://github.com/jahtz/sbbbin" },
+    { name = "sbbbin", git = "https://github.com/jahtz/sbbbin?branch=larex-action%2Fsbbbin" },
     { name = "uvicorn", specifier = ">=0.53.0" },
 ]
 
 [[package]]
 name = "larex-action-sdk"
-version = "0.14.0"
+version = "0.23.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b6/c7/b4e93592fbca43b3c327a98f9e2b00490a7afbf8b29b3fd1435160b5ae7c/larex_action_sdk-0.14.0.tar.gz", hash = "sha256:ea3d805d627a1aafbc55668d7f64551f90bcadf5bc453ccaa0b782138a0fab0b", size = 51352, upload-time = "2026-09-01T08:05:19.975Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/8c/39/8f6c70e242efbf5a776e83b5c2a9e58845dcf44896865d3f2c1222c850b5/larex_action_sdk-0.23.0.tar.gz", hash = "sha256:2a4f6c35607e5a147d85e02fed1ab4153c40bee77ee3a5be27fbe52343226f49", size = 69140, upload-time = "2026-11-03T12:30:09.411Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7c/ea/dfa2ddf53ebccabe113696f726aa14c614371e81ca5e3b80e94d3a60c9cb/larex_action_sdk-0.14.0-py3-none-any.whl", hash = "sha256:7ab817e427bc8787a7394541d1c58e3b740d36302ffb94ebd5e44bd6a26d64fb", size = 25382, upload-time = "2026-09-01T08:05:18.54Z" },
+    { url = "https://files.pythonhosted.org/packages/96/b8/c3c2614abee9d825e3a83d1f717832cc653f3104d54429f677926526141a/larex_action_sdk-0.23.0-py3-none-any.whl", hash = "sha256:aa1febc0e895d9d83a10ba5ce4c9ed24f5bc31da8253859e6beda66a6e0448d1", size = 35450, upload-time = "2026-11-03T12:30:08.248Z" },
 ]
 
 [package.optional-dependencies]
@@ -809,8 +809,8 @@ wheels = [
 
 [[package]]
 name = "sbbbin"
-version = "1.0.0"
-source = { git = "https://github.com/jahtz/sbbbin#09adc2e166d017a20452431d368a6e89e8b8d5e2" }
+version = "1.1.0"
+source = { git = "https://github.com/jahtz/sbbbin?branch=larex-action%2Fsbbbin#70c85893a135e0a199cde834af8c0e46eca7aef1" }
 dependencies = [
     { name = "click" },
     { name = "numpy" },

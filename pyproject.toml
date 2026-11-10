@@ -3,19 +3,17 @@ requires = ["uv_build>=0.12.17,<0.13"]
 build-backend = "uv_build"
 
 [project]
-name = "larex-action-sbbbin"
-version = "0.1.0"
-description = "Runs SBB Binarization on selected image files."
+name = "larex-action-sbb-binarization"
+version = "0.2.0"
+description = "SBB Binarization LAREX Actions processor"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "larex-action-sdk[fastapi]>=0.14.0",
+    "larex-action-sdk[fastapi]>=0.23.0",
     "pydantic-settings>=2.15.0",
     "sbbbin",
+    "uvicorn>=0.53.0",
 ]
 
 [tool.uv.sources]
-sbbbin = { git = "https://github.com/jahtz/sbbbin" }
-
-[tool.ruff.lint.isort]
-lines-after-imports = 2
+sbbbin = { git = "https://github.com/jahtz/sbbbin", branch = "larex-action/sbbbin" }

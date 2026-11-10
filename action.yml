@@ -1,18 +1,23 @@
 version: 1
-id: sbb-binarization
+id: ...
 name: SBB Binarization
-description: Runs SBB Binarization on selected image files.
-category: WORKFLOW
+description: Binarize images using SBB Binarization.
+kind: PROCESSING
+tags:
+  - preprocessing
+targets:
+  - PAGE
 
 endpoint:
-  url: http://kraken.example.com/dispatch
-  healthUrl: http://kraken.example.com/health
-  parameterValuesUrl: http://kraken.example.com/parameter-values
+  url: .../dispatch
+  healthUrl: .../health
+  parameterValuesUrl: .../parameter-values
   timeoutSeconds: 30
   auth:
     type: hmac
-    secretRef: sbb-binarization-v1
+    secretRef: ...
 
+# See https://docs.larex.kallimachos.de/actions/yaml-reference for further help
 access:
   execute: CURATOR
 
@@ -26,8 +31,7 @@ inputs:
 outputs:
   images:
     enabled: true
-    variant: sbb.bin.png
-    mode: append
+    variant: sbb-bin
 
 concurrency:
   maxActiveRuns: 1
@@ -35,7 +39,8 @@ concurrency:
 
 parameters:
   Model:
-    type: string
-    description: SBB Binarization model
+    type: "string"
+    description: "SBB Binarization model"
+    default: "sbb_25-05.pth"
     allowedValues:
-      provider: models
+      provider: "models"
