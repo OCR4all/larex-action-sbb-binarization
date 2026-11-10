@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+import warnings
 from pathlib import Path
 
 from fastapi import status
@@ -20,6 +21,12 @@ def configure_logging() -> None:
     )
     logging.getLogger(__name__).setLevel(
         level=logging.DEBUG if env.ACTION_DEBUG else logging.INFO
+    )
+    warnings.filterwarnings(
+        'ignore',
+        message='Using a non-tuple sequence for multidimensional indexing is deprecated',
+        category=UserWarning,
+        module='onnx2torch',
     )
 
 

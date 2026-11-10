@@ -21,7 +21,6 @@ class Settings(BaseSettings):
     
     SBB_SUFFIX: str = '.sbb.bin.png'
     SBB_DEVICE: Literal['auto', 'cpu', 'cuda'] = 'cuda'
-    SBB_MAX_CONCURRENT_RUNS: PositiveInt = 1
     
     @computed_field
     @property
