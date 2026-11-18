@@ -1,5 +1,5 @@
 version: 1
-id: ...
+id: <processor-id>
 name: SBB Binarization
 description: Binarize images using SBB Binarization.
 kind: PROCESSING
@@ -9,13 +9,13 @@ targets:
   - PAGE
 
 endpoint:
-  url: .../dispatch
-  healthUrl: .../health
-  parameterValuesUrl: .../parameter-values
+  url: http://<action-url>/dispatch
+  healthUrl: http://<action-url>/health
+  parameterValuesUrl: http://<action-url>/parameter-values
   timeoutSeconds: 30
   auth:
     type: hmac
-    secretRef: ...
+    secretRef: <action-secret>
 
 # See https://docs.larex.kallimachos.de/actions/yaml-reference for further help
 access:
@@ -31,7 +31,7 @@ inputs:
 outputs:
   images:
     enabled: true
-    variant: sbb-bin
+    variant: sbb.bin.png
 
 concurrency:
   maxActiveRuns: 1
