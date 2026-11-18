@@ -1,12 +1,8 @@
 # SPDX-License-Identifier: MIT
-from __future__ import annotations
-
 import logging
 import warnings
 from pathlib import Path
 
-from fastapi import status
-from fastapi.responses import JSONResponse
 from larex_actions import ParameterChoice
 from larex_actions.fastapi import create_larex_action_app
 
@@ -28,13 +24,14 @@ def configure_logging() -> None:
         category=UserWarning,
         module='onnx2torch',
     )
-
+    
 
 def discover_sbb_models() -> list[ParameterChoice]:
     return [ParameterChoice(value=path.name, label=path.stem) for path in Path('/models').glob('*.pth')]
-
+        
 
 configure_logging()
+
 app = create_larex_action_app(
     handler=runner,
     processor_id=env.LAREX_PROCESSOR_ID,
@@ -43,10 +40,3 @@ app = create_larex_action_app(
     allowed_callback_origins=env.LAREX_ALLOWED_CALLBACK_ORIGINS,
     parameter_value_providers={'models': discover_sbb_models}
 )
-
-
-@app.get('/ready')
-async def readiness():
-    if env.RUN_SEMAPHORE.locked():
-        return JSONResponse(content={'status': 'busy'}, status_code=status.HTTP_503_SERVICE_UNAVAILABLE)
-    return JSONResponse(content={'status': 'ready', 'capacity': env.ACTION_MAX_CONCURRENT_RUNS})
