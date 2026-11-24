@@ -22,10 +22,12 @@ access:
   execute: CURATOR
 
 locking:
-  mode: PAGES
+  mode: NONE
 
 inputs:
   images:
+    imageTypes: [COLOR, GRAYSCALE, BINARY]
+    preferredImageType: COLOR
     level: required
 
 outputs:
@@ -39,8 +41,8 @@ concurrency:
 
 parameters:
   Model:
-    type: "string"
-    description: "SBB Binarization model"
-    default: "sbb_25-05.pth"
+    type: string
+    description: SBB Binarization model
+    default: <default_model>.pth
     allowedValues:
-      provider: "models"
+      provider: models

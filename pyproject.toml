@@ -9,7 +9,7 @@ description = "SBB Binarization LAREX Actions processor"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "larex-action-sdk[fastapi]>=0.26.0",
+    "larex-action-sdk[fastapi]>=0.30.0",
     "pydantic-settings>=2.16.0",
     "sbbbin",
     "uvicorn>=0.54.0",
