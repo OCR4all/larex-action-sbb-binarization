@@ -22,7 +22,7 @@ access:
   execute: CURATOR
 
 locking:
-  mode: NONE
+  mode: PAGES
 
 inputs:
   images:
